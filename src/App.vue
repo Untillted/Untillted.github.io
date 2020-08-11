@@ -1,20 +1,16 @@
 <template lang="pug">
   <div id="app">
-    <Calculate/>
+    <Calculate />
   </div>
 </template>
 
 <script>
-import "@/js/calculate.js";
-import "@/js/popup.js";
-import "@/js/conditions.js";
 import Calculate from "@/components/Calculate.vue";
 export default {
   name: "App",
   components: {
     Calculate,
   },
-  methods: {},
 };
 </script>
 

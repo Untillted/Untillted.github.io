@@ -1,21 +1,21 @@
-.right__content.right__content_hidden
+.right__content_active(v-if="moreVisible")
     .right__inputs
         label 
-            input.right__input.input(type="radio" checked )
+            input.input(@change="action" @input="calculate" type="radio" name="weight" value="more-10")
+            span.input__text Больше 10 кг
+.right__content(v-else)
+    .right__inputs
+        label 
+            input.input(type="radio" checked )
             span.input__text Больше 10 кг
         .right__body
             p.right__text Мы не отправляем посылки более 10 кг.
             p.right__text Её можно разбить на части до 10 кг?
         .right__input
             label 
-                input.input.right__input_more(type="radio" name="more-2" value="more-yes")
+                input.input(@change="action" @input="calculate"  type="radio" name="more-2" value="40")
                 span.input__text Да
         .right__input    
             label 
-                input.input.right__input_more(type="radio" name="more-2" value="more-no")
+                input.input(@change="action" @input="calculate" type="radio" name="more-2" value="0")
                 span.input__text Нет
-.right__content_active
-    .right__inputs
-        label 
-            input.right__input.input.right__input_active(type="radio" name="weight" value="more-10")
-            span.input__text Больше 10 кг

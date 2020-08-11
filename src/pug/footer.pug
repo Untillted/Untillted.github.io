@@ -1,4 +1,6 @@
 .calculate__container  
-      span.footer__out
-      span.footer__text 
-      span.footer__res 
+      span.footer__out(v-if="footerWarning") "К сожалению, мы не сможем отправить вашу посылку через Сберлогистику.";
+      div(v-else)
+            span.footer__text(v-if="more") Отправка будет стоить всего
+            span.footer__text(v-else) Отправка застрахованной посылки с объявленной стоимостью {{maxSum}} ₽ будет стоить всего
+            span.footer__res {{resultAround}} ₽

@@ -63,7 +63,7 @@
       left: 0;
       transform: translate(30%, -45%);
       opacity: 0;
-      transition: opacity 0.3s ease-in;
+      transition: opacity 0.3s;
     }
   }
 }
@@ -75,10 +75,7 @@
     flex-wrap: wrap;
     text-align: left;
   }
-  // .body__input
-  &__input {
-    margin-right: 1em;
-  }
+
   // .body__out
   &__out {
     flex: 0 0 100%;
