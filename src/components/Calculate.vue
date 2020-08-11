@@ -70,6 +70,7 @@ export default {
     action(e) {
       let value = e.target.value;
       let name = e.target.name;
+      this.footerVisible = false;
       if (value == "more-10") {
         this.moreVisible = false;
       } else if (name == "sum" && value == 0) {
@@ -95,6 +96,7 @@ export default {
     calculate(e) {
       let value = e.target.value;
       let name = e.target.name;
+      this.footerVisible = false;
       if (name == "weight" && value == 5) {
         this.weightValue = +value;
       } else if (name == "weight" && value == 10) {
@@ -158,6 +160,7 @@ export default {
       sumInsurance: "",
       sumPice: 0,
       more: true,
+      footerVisible: true,
       moreVisible: true,
       piceVisible: false,
       footerWarning: false,
