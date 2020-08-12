@@ -70,78 +70,76 @@ export default {
     action(e) {
       let value = e.target.value;
       let name = e.target.name;
-      this.footerVisible = false;
+      let t = this;
+      t.footerVisible = false;
       if (value == "more-10") {
-        this.moreVisible = false;
+        t.moreVisible = false;
       } else if (name == "sum" && value == 0) {
-        this.colorWarningSum = false;
-        this.sumInsurance = "";
-        this.textOutWarning = false;
-        this.more = true;
+        t.colorWarningSum = false;
+        t.sumInsurance = "";
+        t.textOutWarning = false;
+        t.more = true;
       } else if (value == 5) {
-        this.colorWarningPice = false;
-        this.footerWarning = false;
-        this.moreVisible = true;
-        this.piceVisible = false;
+        t.colorWarningPice = false;
+        t.footerWarning = false;
+        t.moreVisible = true;
+        t.piceVisible = false;
       } else if (name == "more-2" && value == 40) {
-        this.piceVisible = true;
-        this.footerWarning = false;
+        t.piceVisible = true;
+        t.footerWarning = false;
       } else if (name == "more-2" && value == 0) {
-        this.colorWarningPice = false;
-        this.footerWarning = true;
-        this.piceVisible = false;
+        t.colorWarningPice = false;
+        t.footerWarning = true;
+        t.piceVisible = false;
       }
     },
     // CALCULATE ===============================
     calculate(e) {
       let value = e.target.value;
       let name = e.target.name;
-      this.footerVisible = false;
+      let t = this;
+      t.footerVisible = false;
       if (name == "weight" && value == 5) {
-        this.weightValue = +value;
+        t.weightValue = +value;
       } else if (name == "weight" && value == 10) {
-        this.weightValue = +value;
+        t.weightValue = +value;
       } else if (name == "weight" && value == "more-10") {
-        this.weightValue = 0;
+        t.weightValue = 0;
       } else if (name == "more-2" && value == 40) {
-        this.weightValue = +value;
-        this.sumPice = 2;
-        this.activeInputPice();
+        t.weightValue = +value;
+        t.sumPice = 2;
+        t.activeInputPice();
       } else if (name == "courier" && value == 100) {
-        this.courierValue = +value;
+        t.courierValue = +value;
       } else if (name == "courier" && value == 0) {
-        this.courierValue = 0;
+        t.courierValue = 0;
       } else if (name == "sum" && value == 0) {
-        this.insuranceValue = 0;
+        t.insuranceValue = 0;
         value = 0;
       } else if (name == "insurance") {
-        this.activeInputSum();
-        if (value > this.maxSum) {
-          this.textOutWarning = true;
-          this.more = false;
-          this.insuranceValue = this.maxSum;
-          this.colorWarningSum = true;
+        t.activeInputSum();
+        if (value > t.maxSum) {
+          t.textOutWarning = true;
+          t.more = false;
+          t.insuranceValue = t.maxSum;
+          t.colorWarningSum = true;
         } else {
-          this.colorWarningSum = false;
-          this.insuranceValue = +value;
-          this.more = true;
-          this.textOutWarning = false;
+          t.colorWarningSum = false;
+          t.insuranceValue = +value;
+          t.more = true;
+          t.textOutWarning = false;
         }
       } else if (name == "pice") {
-        this.weightValue = +value * this.inputs[0].value2 * 2;
+        t.weightValue = +value * t.inputs[0].value2 * 2;
         if (value > 2) {
-          this.colorWarningPice = true;
-          this.footerWarning = true;
+          t.colorWarningPice = true;
+          t.footerWarning = true;
         } else {
-          this.footerWarning = false;
-          this.colorWarningPice = false;
+          t.footerWarning = false;
+          t.colorWarningPice = false;
         }
       }
-      this.calculation(
-        this.weightValue,
-        this.courierValue,
-        this.insuranceValue
-      );
+      t.calculation(t.weightValue, t.courierValue, t.insuranceValue);
     },
     // ACTIVE INPUT SUM ==================================================
     activeInputSum: function () {
